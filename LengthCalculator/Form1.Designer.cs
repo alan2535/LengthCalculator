@@ -1,4 +1,7 @@
-﻿namespace LengthCalculator
+﻿using System;
+using System.Windows.Forms;
+
+namespace LengthCalculator
 {
     partial class Form1
     {
@@ -28,13 +31,237 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCM = new System.Windows.Forms.TextBox();
+            this.txtM = new System.Windows.Forms.TextBox();
+            this.txtKM = new System.Windows.Forms.TextBox();
+            this.txtIn = new System.Windows.Forms.TextBox();
+            this.txtFt = new System.Windows.Forms.TextBox();
+            this.txtYard = new System.Windows.Forms.TextBox();
+            this.txtInfo = new System.Windows.Forms.TextBox();
+            this.btnAllClear = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(79, 104);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "公分";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(228, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "公尺";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(387, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "公里";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(79, 203);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 15);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "英吋";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(387, 203);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 15);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "英碼";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(228, 203);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 15);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "英呎";
+            // 
+            // txtCM
+            // 
+            this.txtCM.Location = new System.Drawing.Point(82, 143);
+            this.txtCM.Name = "txtCM";
+            this.txtCM.Size = new System.Drawing.Size(100, 25);
+            this.txtCM.TabIndex = 1;
+            this.txtCM.TextChanged += new System.EventHandler(this.txtCM_TextChanged);
+            this.txtCM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCM_KeyUp);
+            // 
+            // txtM
+            // 
+            this.txtM.Location = new System.Drawing.Point(230, 143);
+            this.txtM.Name = "txtM";
+            this.txtM.Size = new System.Drawing.Size(100, 25);
+            this.txtM.TabIndex = 1;
+            this.txtM.TextChanged += new System.EventHandler(this.txtM_TextChanged);
+            this.txtM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtM_KeyUp);
+            // 
+            // txtKM
+            // 
+            this.txtKM.Location = new System.Drawing.Point(390, 143);
+            this.txtKM.Name = "txtKM";
+            this.txtKM.Size = new System.Drawing.Size(100, 25);
+            this.txtKM.TabIndex = 1;
+            this.txtKM.TextChanged += new System.EventHandler(this.txtKM_TextChanged);
+            this.txtKM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtKM_KeyUp);
+            // 
+            // txtIn
+            // 
+            this.txtIn.Location = new System.Drawing.Point(82, 248);
+            this.txtIn.Name = "txtIn";
+            this.txtIn.Size = new System.Drawing.Size(100, 25);
+            this.txtIn.TabIndex = 1;
+            this.txtIn.TextChanged += new System.EventHandler(this.txtIn_TextChanged);
+            this.txtIn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIn_KeyUp);
+            // 
+            // txtFt
+            // 
+            this.txtFt.Location = new System.Drawing.Point(230, 248);
+            this.txtFt.Name = "txtFt";
+            this.txtFt.Size = new System.Drawing.Size(100, 25);
+            this.txtFt.TabIndex = 1;
+            this.txtFt.TextChanged += new System.EventHandler(this.txtFt_TextChanged);
+            this.txtFt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFt_KeyUp);
+            // 
+            // txtYard
+            // 
+            this.txtYard.Location = new System.Drawing.Point(390, 248);
+            this.txtYard.Name = "txtYard";
+            this.txtYard.Size = new System.Drawing.Size(100, 25);
+            this.txtYard.TabIndex = 1;
+            this.txtYard.TextChanged += new System.EventHandler(this.txtYard_TextChanged);
+            this.txtYard.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtYard_KeyUp);
+            // 
+            // txtInfo
+            // 
+            this.txtInfo.Location = new System.Drawing.Point(82, 323);
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.Size = new System.Drawing.Size(360, 25);
+            this.txtInfo.TabIndex = 1;
+            this.txtInfo.TextChanged += new System.EventHandler(this.txtIn_TextChanged);
+            // 
+            // btnAllClear
+            // 
+            this.btnAllClear.Location = new System.Drawing.Point(82, 52);
+            this.btnAllClear.Name = "btnAllClear";
+            this.btnAllClear.Size = new System.Drawing.Size(75, 23);
+            this.btnAllClear.TabIndex = 2;
+            this.btnAllClear.Text = "清除";
+            this.btnAllClear.UseVisualStyleBackColor = true;
+            this.btnAllClear.Click += new System.EventHandler(this.btnAllClear_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(79, 293);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 15);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "說明文字";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAllClear);
+            this.Controls.Add(this.txtYard);
+            this.Controls.Add(this.txtKM);
+            this.Controls.Add(this.txtFt);
+            this.Controls.Add(this.txtM);
+            this.Controls.Add(this.txtInfo);
+            this.Controls.Add(this.txtIn);
+            this.Controls.Add(this.txtCM);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        private void txtYard_KeyUp(object sender, KeyEventArgs e)
+        {
+        
+        }
+
+        private void txtFt_TextChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void txtYard_TextChanged(object sender, EventArgs e)
+        {
+   
+        }
+
+        private void txtIn_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtKM_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtM_TextChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void txtCM_TextChanged(object sender, EventArgs e)
+        {
+         
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCM;
+        private System.Windows.Forms.TextBox txtM;
+        private System.Windows.Forms.TextBox txtKM;
+        private System.Windows.Forms.TextBox txtIn;
+        private System.Windows.Forms.TextBox txtFt;
+        private System.Windows.Forms.TextBox txtYard;
+        private System.Windows.Forms.TextBox txtInfo;
+        private System.Windows.Forms.Button btnAllClear;
+        private System.Windows.Forms.Label label7;
     }
 }
 
