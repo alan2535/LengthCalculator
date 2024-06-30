@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace LengthCalculator
@@ -10,75 +11,37 @@ namespace LengthCalculator
             InitializeComponent();
         }
 
-        private void txtCM_KeyUp(object sender, KeyEventArgs e)
+        private void ConvertAndDisplay(double value, string unit)
         {
-            if (double.TryParse(txtCM.Text, out double douCM))
+            var conversions = new Dictionary<string, double>
             {
-                txtM.Text = string.Format("{0:0.##########}", douCM / 100);
-                txtKM.Text = string.Format("{0:0.##########}", douCM / 100000);
-                txtIn.Text = string.Format("{0:0.##########}", douCM / 2.54);
-                txtFt.Text = string.Format("{0:0.##########}", douCM / 30.48);
-                txtYard.Text = string.Format("{0:0.##########}", douCM / 91.44);
+                { "cm", 1 },
+                { "m", 0.01 },
+                { "km", 0.00001 },
+                { "in", 1 / 2.54 },
+                { "ft", 1 / 30.48 },
+                { "yard", 1 / 91.44 }
+            };
+
+            foreach (var key in conversions.Keys)
+            {
+                TextBox textBox = Controls["txt" + key.Substring(0, 1).ToUpper() + key.Substring(1)] as TextBox;
+                textBox.Text = string.Format("{0:0.##########}", value * conversions[key]);
             }
         }
 
-        private void txtM_KeyUp(object sender, KeyEventArgs e)
+        private void HandleKeyUp(object sender, KeyEventArgs e)
         {
-            if (double.TryParse(txtM.Text, out double douM))
+            TextBox textBox = sender as TextBox;
+            if (double.TryParse(textBox.Text, out double value))
             {
-                txtCM.Text = string.Format("{0:0.##########}", douM * 100);
-                txtKM.Text = string.Format("{0:0.##########}", douM / 1000);
-                txtIn.Text = string.Format("{0:0.##########}", douM * 39.3701);
-                txtFt.Text = string.Format("{0:0.##########}", douM * 3.28084);
-                txtYard.Text = string.Format("{0:0.##########}", douM * 1.09361);
+                string unit = textBox.Name.Substring(3).ToLower();
+                ConvertAndDisplay(value * (unit == "cm" ? 1 : unit == "m" ? 100 : unit == "km" ? 100000 : unit == "in" ? 2.54 : unit == "ft" ? 30.48 : 91.44), "cm");
+                txtInfo.Text = string.Empty; // 清除之前的錯誤消息
             }
-        }
-
-        private void txtKM_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (double.TryParse(txtKM.Text, out double douKM))
+            else
             {
-                txtCM.Text = string.Format("{0:0.##########}", douKM * 100000);
-                txtM.Text = string.Format("{0:0.##########}", douKM * 1000);
-                txtIn.Text = string.Format("{0:0.##########}", douKM * 39370.1);
-                txtFt.Text = string.Format("{0:0.##########}", douKM * 3280.84);
-                txtYard.Text = string.Format("{0:0.##########}", douKM * 1093.61);
-            }
-        }
-
-        private void txtIn_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (double.TryParse(txtIn.Text, out double douIn))
-            {
-                txtCM.Text = string.Format("{0:0.##########}", douIn * 2.54);
-                txtM.Text = string.Format("{0:0.##########}", douIn / 39.3701);
-                txtKM.Text = string.Format("{0:0.##########}", douIn / 39370.1);
-                txtFt.Text = string.Format("{0:0.##########}", douIn / 12);
-                txtYard.Text = string.Format("{0:0.##########}", douIn / 36);
-            }
-        }
-
-        private void txtFt_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (double.TryParse(txtFt.Text, out double douFt))
-            {
-                txtCM.Text = string.Format("{0:0.##########}", douFt * 30.48);
-                txtM.Text = string.Format("{0:0.##########}", douFt / 3.28084);
-                txtKM.Text = string.Format("{0:0.##########}", douFt / 3280.84);
-                txtIn.Text = string.Format("{0:0.##########}", douFt * 12);
-                txtYard.Text = string.Format("{0:0.##########}", douFt / 3);
-            }
-        }
-
-        private void txtYd_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (double.TryParse(txtYard.Text, out double douYd))
-            {
-                txtCM.Text = string.Format("{0:0.##########}", douYd * 91.44);
-                txtM.Text = string.Format("{0:0.##########}", douYd / 1.09361);
-                txtKM.Text = string.Format("{0:0.##########}", douYd / 1093.61);
-                txtIn.Text = string.Format("{0:0.##########}", douYd * 36);
-                txtFt.Text = string.Format("{0:0.##########}", douYd * 3);
+                txtInfo.Text = "請輸入有效的數字";
             }
         }
 

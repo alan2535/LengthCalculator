@@ -108,8 +108,6 @@ namespace LengthCalculator
             this.txtCM.Name = "txtCM";
             this.txtCM.Size = new System.Drawing.Size(100, 25);
             this.txtCM.TabIndex = 1;
-            this.txtCM.TextChanged += new System.EventHandler(this.txtCM_TextChanged);
-            this.txtCM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCM_KeyUp);
             // 
             // txtM
             // 
@@ -117,8 +115,6 @@ namespace LengthCalculator
             this.txtM.Name = "txtM";
             this.txtM.Size = new System.Drawing.Size(100, 25);
             this.txtM.TabIndex = 1;
-            this.txtM.TextChanged += new System.EventHandler(this.txtM_TextChanged);
-            this.txtM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtM_KeyUp);
             // 
             // txtKM
             // 
@@ -126,8 +122,6 @@ namespace LengthCalculator
             this.txtKM.Name = "txtKM";
             this.txtKM.Size = new System.Drawing.Size(100, 25);
             this.txtKM.TabIndex = 1;
-            this.txtKM.TextChanged += new System.EventHandler(this.txtKM_TextChanged);
-            this.txtKM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtKM_KeyUp);
             // 
             // txtIn
             // 
@@ -135,8 +129,6 @@ namespace LengthCalculator
             this.txtIn.Name = "txtIn";
             this.txtIn.Size = new System.Drawing.Size(100, 25);
             this.txtIn.TabIndex = 1;
-            this.txtIn.TextChanged += new System.EventHandler(this.txtIn_TextChanged);
-            this.txtIn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIn_KeyUp);
             // 
             // txtFt
             // 
@@ -144,8 +136,6 @@ namespace LengthCalculator
             this.txtFt.Name = "txtFt";
             this.txtFt.Size = new System.Drawing.Size(100, 25);
             this.txtFt.TabIndex = 1;
-            this.txtFt.TextChanged += new System.EventHandler(this.txtFt_TextChanged);
-            this.txtFt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFt_KeyUp);
             // 
             // txtYard
             // 
@@ -153,8 +143,6 @@ namespace LengthCalculator
             this.txtYard.Name = "txtYard";
             this.txtYard.Size = new System.Drawing.Size(100, 25);
             this.txtYard.TabIndex = 1;
-            this.txtYard.TextChanged += new System.EventHandler(this.txtYard_TextChanged);
-            this.txtYard.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtYard_KeyUp);
             // 
             // txtInfo
             // 
@@ -162,7 +150,6 @@ namespace LengthCalculator
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.Size = new System.Drawing.Size(360, 25);
             this.txtInfo.TabIndex = 1;
-            this.txtInfo.TextChanged += new System.EventHandler(this.txtIn_TextChanged);
             // 
             // btnAllClear
             // 
@@ -172,7 +159,6 @@ namespace LengthCalculator
             this.btnAllClear.TabIndex = 2;
             this.btnAllClear.Text = "清除";
             this.btnAllClear.UseVisualStyleBackColor = true;
-            this.btnAllClear.Click += new System.EventHandler(this.btnAllClear_Click);
             // 
             // label7
             // 
@@ -208,41 +194,14 @@ namespace LengthCalculator
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
-
-        private void txtYard_KeyUp(object sender, KeyEventArgs e)
-        {
-        
-        }
-
-        private void txtFt_TextChanged(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void txtYard_TextChanged(object sender, EventArgs e)
-        {
-   
-        }
-
-        private void txtIn_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void txtKM_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void txtM_TextChanged(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void txtCM_TextChanged(object sender, EventArgs e)
-        {
-         
+            // 添加事件處理程序
+            this.txtCM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HandleKeyUp);
+            this.txtM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HandleKeyUp);
+            this.txtKM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HandleKeyUp);
+            this.txtIn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HandleKeyUp);
+            this.txtFt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HandleKeyUp);
+            this.txtYard.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HandleKeyUp);
+            this.btnAllClear.Click += new System.EventHandler(this.btnAllClear_Click);
         }
 
         #endregion
